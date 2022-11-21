@@ -67,3 +67,74 @@ enterosLista2.Clear(); //limpiar toda la lista
 //ordenar elemetos de la lista
 
 enterosLista2.Sort();
+
+
+//Diccionarios
+
+//inicializar un diccionario
+Dictionary<string, int> diccionario = new Dictionary<string, int>();
+
+var diccionario2 = new Dictionary<string, int>()
+{
+    { "Uno", 1 },
+    { "Dos", 2 },
+    { "Tres", 3 }
+};
+
+
+//formas de agregar valores a un diccionario
+diccionario.Add("uno", 1); //Solamente agregar
+diccionario["Dos"] = 2; //Agregar y modificar valores
+
+//verificar si la llave esta dentro del diccionario
+
+if (diccionario.ContainsKey("Tres"))
+{
+    Console.WriteLine(diccionario["Tres"]);
+}
+else
+{
+    Console.WriteLine("La llave no se encuentra en el diccionario");
+}
+
+Console.WriteLine("Llaves:");
+foreach (var llave in diccionario.Keys)
+{
+    Console.WriteLine(llave);
+}
+
+Console.WriteLine();
+
+Console.WriteLine("Valores:");
+foreach (var valor in diccionario.Values)
+{
+    Console.WriteLine(valor);
+}
+
+Console.WriteLine();
+
+var diccionarioParimpar = new Dictionary<string, List<int>>();
+diccionarioParimpar.Add("Par", new List<int>());
+diccionarioParimpar.Add("Impar", new List<int>());
+
+diccionarioParimpar["Par"].Add(12);
+//Console.WriteLine(diccionarioParimpar["Par"]);
+
+for (int i = 1; i <= 10; i++)
+{
+    var llave = i % 2 == 0 ? "Par" : "Impar";
+    diccionarioParimpar[llave].Add(i);
+}
+
+
+foreach (var llaveValores in diccionarioParimpar)
+{
+    Console.WriteLine(llaveValores.Key);
+    foreach (var valor in llaveValores.Value)
+    {
+        Console.WriteLine($" - {valor}");
+    }
+}
+
+var par = diccionarioParimpar["Par"];
+var impar = diccionarioParimpar["Impar"];
